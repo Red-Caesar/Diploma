@@ -1,0 +1,7 @@
+openai==1.7.0
+langchain
+llama_index
+tqdm
+octoai-sdk
+sentence-transformers
+chromadb
