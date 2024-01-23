@@ -1,3 +1,4 @@
 datasets/*
 .env
 .logs
+.ipynb_checkpoints/
