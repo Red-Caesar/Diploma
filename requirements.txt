@@ -1,7 +1,10 @@
-openai==1.7.0
+openai
 langchain
 llama_index
 tqdm
 octoai-sdk
 sentence-transformers
 chromadb
+datasets
+pandas
+ragas
