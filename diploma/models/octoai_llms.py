@@ -1,17 +1,14 @@
-from diploma.base import BaseLM
-
 import octoai
 from octoai.errors import OctoAIError
 import os
 
 REPEAT_REQUEST_TO_OCTOAI_SERVER = 10
 
-class OctoAIEndpointLM(BaseLM):
+class OctoAIEndpointLM:
     def __init__(
         self,
-        url: str,
+        url: str=None,
         model_name: str=None,
-        prod: bool=True,
         ):
         self.token = os.environ["OCTOAI_TOKEN"]
         if self.token is None:
@@ -20,7 +17,9 @@ class OctoAIEndpointLM(BaseLM):
         if url is not None:
             self.endpoint = url
         else:
-            self.endpoint = self.construct_request_url(prod)
+            self.endpoint = os.environ["ENDPOINT"]
+            if self.endpoint is None:
+                raise ValueError("ENDPOINT not found.")
 
         self.model_name = model_name
         if self.model_name is None:
@@ -36,14 +35,6 @@ class OctoAIEndpointLM(BaseLM):
         "top_p": 1.0,
         "n": 1,
         }
-
-    def construct_request_url(self, prod: bool) -> str:
-        if prod:
-            url = "https://text.octoai.run"
-        else:
-            url = "https://text.customer-endpoints.nimbus.octoml.ai"
-
-        return url
 
     def set_system_prompt(self, prompt: str) -> None:
         self.system_prompt = prompt
