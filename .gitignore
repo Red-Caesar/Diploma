@@ -1,7 +1,6 @@
 *.ipynb_checkpoints/*
 __pycache__/
 
-metrics_results
 RAG_results
 datasets/*
 .env
