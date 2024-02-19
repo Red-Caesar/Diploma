@@ -8,3 +8,4 @@ chromadb
 datasets
 pandas
 ragas
+seaborn
