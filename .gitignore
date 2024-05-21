@@ -1,0 +1,11 @@
+*.ipynb_checkpoints/*
+__pycache__/
+
+.env
+.logs
+test_dir/
+poetry.lock
+.venv
+diploma/results/RAG/*
+diploma/results/RAGAS/*
+.vscode

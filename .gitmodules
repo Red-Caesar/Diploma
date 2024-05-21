@@ -1,0 +1,4 @@
+[submodule "deps/ragas"]
+	path = deps/ragas
+	url = git@github.com:Red-Caesar/ragas.git
+	branch = redcaesar/fix_metrics
